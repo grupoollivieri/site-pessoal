@@ -1,1 +1,1316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arca Ollivieri — Formação para a vida que se constrói em família</title>
+  <meta name="description" content="Mais de 60 aulas sobre casamento, filhos, trabalho, vida espiritual e tudo o que sustenta uma família de verdade. Pagamento único. Sem mensalidade." />
+  <meta property="og:title" content="Arca Ollivieri" />
+  <meta property="og:description" content="Formação para a vida que se constrói em família. Pagamento único. Sem mensalidade. Sem renovação." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ══════════════════════════════════════════════════════════
+       ARCA OLLIVIERI — brand system
+       Editorial clássico · navy & ocre
+    ══════════════════════════════════════════════════════════ */
 
+    :root {
+      /* Paleta primária */
+      --navy-deep:    #0C1F31;   /* fundo dominante, títulos */
+      --navy:         #112E49;   /* variação, blocos */
+      --navy-soft:    #1E3F5F;   /* hover, bordas acentuadas */
+
+      --ocre:         #CC922F;   /* acento, CTAs */
+      --ocre-soft:    #E1C389;   /* dourado claro, detalhes */
+      --ocre-muted:   #A87922;   /* ocre escurecido para hover */
+
+      --cream:        #F7F1E4;   /* fundo quente principal */
+      --cream-deep:   #EFE7D4;   /* variação para alternância */
+      --paper:        #FAF6EC;   /* quase branco, hero claro */
+
+      --ink:          #1A1614;   /* tinta, quase preto */
+      --ink-soft:     #3C342C;   /* texto corpo */
+      --ink-muted:    #6B5F52;   /* texto secundário */
+      --ink-faint:    #9A8B7A;   /* texto muito discreto, labels */
+
+      /* Tipografia */
+      --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+      --font-body:    "Source Serif 4", "Source Serif Pro", Georgia, serif;
+      --font-ui:      "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--ink-soft);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    ::selection { background: var(--ocre); color: var(--navy-deep); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ── Grain texture overlay ── */
+    .grain::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: multiply;
+    }
+    .grain { position: relative; }
+    .grain > * { position: relative; z-index: 1; }
+
+    /* ── Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+                  transform 0.9s cubic-bezier(0.22,1,0.36,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.18s; }
+    .reveal-d3 { transition-delay: 0.28s; }
+    .reveal-d4 { transition-delay: 0.38s; }
+    .reveal-d5 { transition-delay: 0.5s; }
+    .reveal-d6 { transition-delay: 0.62s; }
+
+    /* ── Layout ── */
+    .container { max-width: 680px; margin: 0 auto; padding: 0 32px; }
+    .container--wide { max-width: 920px; margin: 0 auto; padding: 0 32px; }
+    .container--narrow { max-width: 560px; margin: 0 auto; padding: 0 32px; }
+    .section-pad { padding: 120px 0; }
+    .section-pad--sm { padding: 90px 0; }
+
+    /* ── Eyebrows (labels em versalete, como capítulos) ── */
+    .chapter {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--ocre-muted);
+      margin-bottom: 28px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .chapter::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--ocre-muted);
+      display: inline-block;
+    }
+    .chapter--light { color: var(--ocre-soft); }
+    .chapter--light::before { background: var(--ocre-soft); }
+    .chapter--center { justify-content: center; }
+
+    .roman {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ocre-muted);
+      letter-spacing: 2px;
+      margin-right: 10px;
+    }
+    .roman--light { color: var(--ocre-soft); }
+
+    /* ── Títulos ── */
+    .display-1 {
+      font-family: var(--font-display);
+      font-size: clamp(56px, 9vw, 96px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+      color: var(--navy-deep);
+    }
+    .display-1--light { color: var(--paper); }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 4.5vw, 46px);
+      font-weight: 400;
+      color: var(--navy-deep);
+      line-height: 1.18;
+      letter-spacing: -0.6px;
+      margin-bottom: 32px;
+    }
+    .section-title--light { color: var(--paper); }
+    .section-title em {
+      font-style: italic;
+      color: var(--ocre-muted);
+      font-weight: 400;
+    }
+
+    /* ── Body ── */
+    .body-text {
+      font-family: var(--font-body);
+      font-size: 17.5px;
+      line-height: 1.85;
+      color: var(--ink-soft);
+    }
+    .body-text p { margin-bottom: 22px; }
+    .body-text p:last-child { margin-bottom: 0; }
+    .body-text p:first-child::first-letter {
+      font-family: var(--font-display);
+      font-size: 62px;
+      font-weight: 500;
+      float: left;
+      line-height: 0.92;
+      padding: 6px 12px 0 0;
+      color: var(--ocre);
+    }
+    .body-text--sm {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--ink-soft);
+    }
+    .body-text--sm p { margin-bottom: 18px; }
+    .body-text--sm p:last-child { margin-bottom: 0; }
+    .body-text em, .body-text--sm em {
+      font-style: italic;
+      color: var(--navy-deep);
+    }
+
+    /* ── CTA ── */
+    .cta-btn {
+      display: inline-block;
+      background: var(--ocre);
+      color: var(--navy-deep);
+      font-family: var(--font-ui);
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 20px 44px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .cta-btn:hover {
+      background: var(--ocre-muted);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 40px rgba(204,146,47,0.25);
+    }
+    .cta-btn--outline {
+      background: transparent;
+      color: var(--ocre-soft);
+      border: 1px solid var(--ocre);
+    }
+    .cta-btn--outline:hover {
+      background: var(--ocre);
+      color: var(--navy-deep);
+      box-shadow: 0 14px 40px rgba(204,146,47,0.2);
+    }
+
+    /* ── Rules & dividers ── */
+    .rule {
+      width: 56px;
+      height: 1px;
+      background: var(--ocre);
+      border: none;
+    }
+    .rule--double {
+      width: 72px;
+      height: 4px;
+      border: none;
+      border-top: 1px solid var(--ocre);
+      border-bottom: 1px solid var(--ocre);
+      background: transparent;
+    }
+    .rule--center { margin-left: auto; margin-right: auto; }
+
+    /* ══════════════════════════════════════════════════════════
+       NAV BAR (minimal)
+    ══════════════════════════════════════════════════════════ */
+    .nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav__mark {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ocre-soft);
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav__mark-symbol {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border: 1px solid var(--ocre);
+      border-radius: 50%;
+      font-size: 11px;
+      line-height: 26px;
+      text-align: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--ocre);
+      letter-spacing: 0;
+    }
+    .nav__entry {
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ocre-soft);
+      border: 1px solid var(--ocre-soft);
+      padding: 10px 22px;
+      transition: all 0.25s ease;
+    }
+    .nav__entry:hover {
+      background: var(--ocre);
+      color: var(--navy-deep);
+      border-color: var(--ocre);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════════ */
+    .hero {
+      background: var(--navy-deep);
+      color: var(--paper);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 160px 32px 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      /* sutil vinheta radial para dar profundidade */
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.35) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .hero > * { position: relative; z-index: 2; }
+
+    .hero__byline {
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      letter-spacing: 4.5px;
+      text-transform: uppercase;
+      color: var(--ocre);
+      margin-bottom: 48px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .hero__byline::before,
+    .hero__byline::after {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--ocre);
+      display: inline-block;
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(62px, 10vw, 124px);
+      font-weight: 400;
+      color: var(--paper);
+      line-height: 0.98;
+      margin-bottom: 28px;
+      letter-spacing: -2.5px;
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--ocre-soft);
+      font-weight: 400;
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-display);
+      font-size: clamp(20px, 2.5vw, 26px);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ocre-soft);
+      max-width: 540px;
+      line-height: 1.55;
+      margin-bottom: 44px;
+    }
+
+    .hero__rule {
+      width: 56px;
+      height: 1px;
+      background: var(--ocre);
+      margin: 0 auto 44px;
+      border: none;
+    }
+
+    .hero__desc {
+      font-family: var(--font-body);
+      font-size: 16.5px;
+      color: rgba(247,241,228,0.72);
+      line-height: 1.85;
+      max-width: 540px;
+      margin-bottom: 56px;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-ui);
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ocre-soft);
+      opacity: 0.6;
+      z-index: 2;
+    }
+    .hero__scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--ocre-soft);
+      margin: 14px auto 0;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(0.5); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       O QUE É — primeira seção clara
+    ══════════════════════════════════════════════════════════ */
+    .what {
+      background: var(--cream);
+      padding: 140px 0 130px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       PILARES — navy escuro
+    ══════════════════════════════════════════════════════════ */
+    .pilares {
+      background: var(--navy-deep);
+      color: var(--paper);
+      padding: 130px 0;
+      position: relative;
+    }
+    .pilares__header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+    .pilares__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .pilar {
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .pilar:first-child { border-right: 1px solid rgba(225,195,137,0.18); }
+    .pilar__numeral {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--ocre);
+      margin-bottom: 18px;
+      line-height: 1;
+    }
+    .pilar__title {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--paper);
+      margin-bottom: 22px;
+      letter-spacing: 0.3px;
+      line-height: 1.25;
+    }
+    .pilar__title em {
+      font-style: italic;
+      color: var(--ocre-soft);
+      font-weight: 400;
+    }
+    .pilar__desc {
+      font-family: var(--font-body);
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: rgba(247,241,228,0.72);
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       TRILHAS
+    ══════════════════════════════════════════════════════════ */
+    .trilhas {
+      background: var(--cream);
+      padding: 140px 0;
+    }
+    .trilhas__header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 80px;
+    }
+    .trilhas__intro {
+      font-family: var(--font-body);
+      font-size: 17px;
+      color: var(--ink-muted);
+      line-height: 1.75;
+      margin-top: 18px;
+    }
+    .trilhas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(26,22,20,0.08);
+      border-top: 1px solid rgba(26,22,20,0.08);
+      border-bottom: 1px solid rgba(26,22,20,0.08);
+    }
+    .trilha-card {
+      background: var(--cream);
+      padding: 42px 28px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background 0.3s ease;
+      position: relative;
+    }
+    .trilha-card:hover { background: var(--paper); }
+    .trilha-card__num {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ocre);
+      margin-bottom: 14px;
+      letter-spacing: 1.5px;
+    }
+    .trilha-card__title {
+      font-family: var(--font-display);
+      font-size: 23px;
+      font-weight: 500;
+      color: var(--navy-deep);
+      margin-bottom: 10px;
+      letter-spacing: -0.2px;
+      line-height: 1.15;
+    }
+    .trilha-card__desc {
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       QUEM SOMOS
+    ══════════════════════════════════════════════════════════ */
+    .sobre {
+      background: var(--cream-deep);
+      padding: 140px 0;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       O QUE NÃO É
+    ══════════════════════════════════════════════════════════ */
+    .nao-e { padding: 140px 0; }
+    .neg-list { margin-top: 16px; }
+    .neg-item {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(26,22,20,0.12);
+      display: flex;
+      align-items: flex-start;
+      gap: 22px;
+      font-family: var(--font-body);
+      font-size: 16.5px;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    .neg-item:first-child { border-top: 1px solid rgba(26,22,20,0.12); }
+    .neg-item__numeral {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-style: italic;
+      color: var(--ocre);
+      flex-shrink: 0;
+      width: 30px;
+      padding-top: 4px;
+      letter-spacing: 1px;
+    }
+    .neg-quote {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 2.6vw, 26px);
+      font-style: italic;
+      font-weight: 400;
+      color: var(--navy-deep);
+      margin-top: 56px;
+      line-height: 1.45;
+      padding-left: 28px;
+      border-left: 3px double var(--ocre);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       PREÇO — hero escuro
+    ══════════════════════════════════════════════════════════ */
+    .preco {
+      background: var(--navy-deep);
+      color: var(--paper);
+      padding: 140px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .preco__frame {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .preco__stamp {
+      display: inline-block;
+      width: 64px;
+      height: 64px;
+      border: 1px solid var(--ocre);
+      border-radius: 50%;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .preco__stamp::before {
+      content: 'AO';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 22px;
+      color: var(--ocre-soft);
+      letter-spacing: 0;
+    }
+    .preco__currency {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ocre-soft);
+      vertical-align: top;
+      margin-right: 6px;
+      position: relative;
+      top: 18px;
+    }
+    .preco__value {
+      font-family: var(--font-display);
+      font-size: clamp(80px, 12vw, 128px);
+      font-weight: 400;
+      color: var(--paper);
+      letter-spacing: -3px;
+      line-height: 1;
+    }
+    .preco__sub {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--ocre-soft);
+      margin: 24px 0 48px;
+      line-height: 1.55;
+    }
+    .preco__guarantee {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: rgba(225,195,137,0.6);
+      margin-top: 32px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       CADERNOS vs ARCA
+    ══════════════════════════════════════════════════════════ */
+    .cadernos {
+      background: var(--cream);
+      padding: 140px 0;
+    }
+    .cadernos-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 56px;
+      align-items: start;
+    }
+    .cadernos-col {
+      padding: 44px 36px;
+      background: var(--paper);
+      border-top: 3px double var(--ocre);
+      position: relative;
+    }
+    .cadernos-col__label {
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ocre-muted);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+    .cadernos-col__name {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 500;
+      color: var(--navy-deep);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .cadernos-col__what {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-style: italic;
+      color: var(--ocre-muted);
+      margin-bottom: 20px;
+    }
+    .cadernos-col__desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       FAQ
+    ══════════════════════════════════════════════════════════ */
+    .faq {
+      background: var(--cream-deep);
+      padding: 130px 0 140px;
+    }
+    .faq-list { margin-top: 20px; }
+    .faq-item {
+      border-bottom: 1px solid rgba(26,22,20,0.12);
+    }
+    .faq-item:first-child { border-top: 1px solid rgba(26,22,20,0.12); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 26px 0;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--navy-deep);
+      line-height: 1.35;
+      transition: color 0.2s ease;
+    }
+    .faq-question:hover { color: var(--ocre-muted); }
+    .faq-icon {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--ocre);
+      flex-shrink: 0;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      user-select: none;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      opacity: 1;
+    }
+    .faq-answer__text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--ink-soft);
+      padding: 4px 48px 28px 0;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       CTA FINAL
+    ══════════════════════════════════════════════════════════ */
+    .cta-final {
+      background: var(--navy-deep);
+      color: var(--paper);
+      padding: 150px 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-final__inner {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-final__ornament {
+      font-family: var(--font-display);
+      font-size: 32px;
+      color: var(--ocre);
+      margin-bottom: 24px;
+      letter-spacing: 4px;
+    }
+    .cta-final__title {
+      font-family: var(--font-display);
+      font-size: clamp(42px, 5.5vw, 56px);
+      font-weight: 400;
+      color: var(--paper);
+      line-height: 1.1;
+      margin: 0 auto 22px;
+      letter-spacing: -0.8px;
+    }
+    .cta-final__title em {
+      font-style: italic;
+      color: var(--ocre-soft);
+    }
+    .cta-final__sub {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-style: italic;
+      color: var(--ocre-soft);
+      margin: 0 auto 52px;
+      line-height: 1.55;
+      max-width: 460px;
+    }
+    .cta-final__note {
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(225,195,137,0.55);
+      margin-top: 34px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════════════ */
+    .footer {
+      background: var(--navy-deep);
+      padding: 48px 32px 52px;
+      border-top: 1px solid rgba(225,195,137,0.12);
+      text-align: center;
+    }
+    .footer__monogram {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 20px;
+      color: var(--ocre);
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+    .footer__text {
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      color: rgba(225,195,137,0.5);
+      letter-spacing: 1.5px;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .trilhas-grid { grid-template-columns: repeat(2, 1fr); }
+      .cadernos-split { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .nav { padding: 24px; }
+      .nav__entry { display: none; }
+      .section-pad, .what, .pilares, .trilhas, .sobre, .nao-e, .cadernos, .faq { padding: 90px 0; }
+      .container, .container--wide, .container--narrow { padding: 0 24px; }
+      .hero { padding: 130px 24px 100px; }
+      .hero__byline { font-size: 10px; gap: 12px; margin-bottom: 36px; }
+      .hero__byline::before, .hero__byline::after { width: 20px; }
+      .body-text { font-size: 16.5px; }
+      .body-text p:first-child::first-letter { font-size: 48px; }
+      .pilares__grid { grid-template-columns: 1fr; gap: 0; }
+      .pilar:first-child { border-right: none; border-bottom: 1px solid rgba(225,195,137,0.18); }
+      .trilhas-grid { grid-template-columns: 1fr; }
+      .trilha-card { min-height: 140px; padding: 32px 24px; }
+      .cta-btn { padding: 17px 36px; font-size: 12.5px; }
+      .faq-question { font-size: 18px; }
+      .faq-answer__text { padding-right: 0; }
+      .preco__value { letter-spacing: -2px; }
+      .cta-final { padding: 100px 24px; }
+      .neg-quote { padding-left: 20px; font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       NAV
+  ══════════════════════════════════════════════════════════ -->
+  <nav class="nav">
+    <div class="nav__mark">
+      <span class="nav__mark-symbol">AO</span>
+      Arca Ollivieri
+    </div>
+    <a href="#preco" class="nav__entry">Entrar na Arca</a>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
+  <section class="hero grain">
+    <p class="hero__byline reveal">Augusto &amp; Nicole Ollivieri</p>
+    <h1 class="hero__title reveal reveal-d1">Arca<br/><em>Ollivieri</em></h1>
+    <hr class="hero__rule reveal reveal-d2" />
+    <p class="hero__subtitle reveal reveal-d3">
+      Formação para a vida<br/>que se constrói em família.
+    </p>
+    <p class="hero__desc reveal reveal-d4">
+      Mais de 60 aulas gravadas sobre casamento, filhos, trabalho,
+      vida espiritual, saúde e tudo o que sustenta uma família de verdade.
+      Pagamento único. Sem mensalidade. Sem renovação.
+    </p>
+    <a href="#preco" class="cta-btn reveal reveal-d5">Entrar na Arca</a>
+    <div class="hero__scroll">Leia</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       O QUE É
+  ══════════════════════════════════════════════════════════ -->
+  <section class="what">
+    <div class="container">
+      <p class="chapter reveal"><span class="roman">I</span>O que é a Arca</p>
+      <h2 class="section-title reveal reveal-d1">
+        Um lugar pra <em>entrar</em> e ficar.
+      </h2>
+      <div class="body-text reveal reveal-d2">
+        <p>
+          A Arca é um acervo de aulas — minhas e da Nicole — sobre
+          o que aprendemos vivendo, errando e construindo uma família.
+          Não é um curso com início e fim. Não tem cronograma, não tem
+          prazo, não tem pressão.
+        </p>
+        <p>
+          Você entra, encontra o que precisa, e vai no seu ritmo.
+          A gente grava quando tem algo de verdade pra dizer.
+        </p>
+        <p>
+          É como uma casa: você não visita, você mora. E a casa vai
+          crescendo com a gente — devagar, com calma, no ritmo de
+          quem está criando filhos e vivendo o que ensina.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PILARES
+  ══════════════════════════════════════════════════════════ -->
+  <section class="pilares grain">
+    <div class="pilares__header">
+      <p class="chapter chapter--light chapter--center reveal">
+        <span class="roman roman--light">II</span>Os pilares da formação
+      </p>
+      <h2 class="section-title section-title--light reveal reveal-d1" style="max-width:620px;margin:0 auto;">
+        Seis palavras <em>sustentam</em> tudo.
+      </h2>
+    </div>
+    <div class="pilares__grid">
+      <div class="pilar reveal reveal-d1">
+        <div class="pilar__numeral">i.</div>
+        <h3 class="pilar__title">Família · Trabalho · <em>Religião</em></h3>
+        <p class="pilar__desc">
+          Os três eixos sobre os quais uma vida adulta se sustenta.
+          Tire um, e tudo desaba. A Arca aborda cada um deles com
+          profundidade e honestidade.
+        </p>
+      </div>
+      <div class="pilar reveal reveal-d2">
+        <div class="pilar__numeral">ii.</div>
+        <h3 class="pilar__title">Presença · Ordem · <em>Domínio</em></h3>
+        <p class="pilar__desc">
+          As três virtudes práticas para viver cada eixo.
+          Estar presente, colocar as coisas em ordem, e dominar
+          o que é seu de dominar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       TRILHAS
+  ══════════════════════════════════════════════════════════ -->
+  <section class="trilhas">
+    <div class="container--wide">
+      <div class="trilhas__header">
+        <p class="chapter chapter--center reveal">
+          <span class="roman">III</span>O que você encontra lá dentro
+        </p>
+        <h2 class="section-title reveal reveal-d1">
+          Mais de 60 aulas em <em>oito trilhas</em>.
+        </h2>
+        <p class="trilhas__intro reveal reveal-d2">
+          Cada trilha cobre uma dimensão da vida familiar.
+          Você começa por onde quiser e avança no seu ritmo.
+          O acervo cresce com a gente.
+        </p>
+      </div>
+
+      <div class="trilhas-grid">
+        <div class="trilha-card reveal">
+          <div>
+            <div class="trilha-card__num">i.</div>
+            <h3 class="trilha-card__title">Matrimônio</h3>
+          </div>
+          <p class="trilha-card__desc">Convivência, intimidade, conflitos, crescimento a dois.</p>
+        </div>
+        <div class="trilha-card reveal reveal-d1">
+          <div>
+            <div class="trilha-card__num">ii.</div>
+            <h3 class="trilha-card__title">Filhos</h3>
+          </div>
+          <p class="trilha-card__desc">Educação, presença, limites, formação do caráter.</p>
+        </div>
+        <div class="trilha-card reveal reveal-d2">
+          <div>
+            <div class="trilha-card__num">iii.</div>
+            <h3 class="trilha-card__title">Vida Espiritual</h3>
+          </div>
+          <p class="trilha-card__desc">Oração, sacramentos, sentido, vida interior.</p>
+        </div>
+        <div class="trilha-card reveal reveal-d3">
+          <div>
+            <div class="trilha-card__num">iv.</div>
+            <h3 class="trilha-card__title">Trabalho &amp; Dinheiro</h3>
+          </div>
+          <p class="trilha-card__desc">Patrimônio, carreira, vocação profissional, finanças.</p>
+        </div>
+        <div class="trilha-card reveal">
+          <div>
+            <div class="trilha-card__num">v.</div>
+            <h3 class="trilha-card__title">Corpo &amp; Saúde</h3>
+          </div>
+          <p class="trilha-card__desc">Alimentação, disposição, rotina, hábitos.</p>
+        </div>
+        <div class="trilha-card reveal reveal-d1">
+          <div>
+            <div class="trilha-card__num">vi.</div>
+            <h3 class="trilha-card__title">Personalidade</h3>
+          </div>
+          <p class="trilha-card__desc">Temperamentos, amadurecimento, autoconhecimento.</p>
+        </div>
+        <div class="trilha-card reveal reveal-d2">
+          <div>
+            <div class="trilha-card__num">vii.</div>
+            <h3 class="trilha-card__title">Sexualidade</h3>
+          </div>
+          <p class="trilha-card__desc">Vida sexual, libido, ciclo, castidade.</p>
+        </div>
+        <div class="trilha-card reveal reveal-d3">
+          <div>
+            <div class="trilha-card__num">viii.</div>
+            <h3 class="trilha-card__title">Conquista &amp; Namoro</h3>
+          </div>
+          <p class="trilha-card__desc">Fundamentos, friendzone, arquétipos, vocação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       QUEM SOMOS
+  ══════════════════════════════════════════════════════════ -->
+  <section class="sobre">
+    <div class="container">
+      <p class="chapter reveal"><span class="roman">IV</span>Quem está por trás</p>
+      <h2 class="section-title reveal reveal-d1">Augusto &amp; <em>Nicole</em> Ollivieri</h2>
+      <div class="body-text--sm reveal reveal-d2">
+        <p>
+          Augusto é psicoterapeuta — certificação Italo Marsili —
+          e atende semanalmente dezenas de famílias e casais.
+          Graduado pela FGV EAESP (1º lugar no Quadro de Honra),
+          aprovado na Fundação Estudar (33 entre 84 mil),
+          pós-graduado em Psicologia Clínica, Filosofia Aplicada
+          e Ciências da Família.
+        </p>
+        <p>
+          Nicole é esposa, mãe e presença constante na Arca.
+          Suas aulas trazem a perspectiva de quem vive do
+          outro lado da teoria — o cotidiano real de uma mãe
+          que educa, organiza e sustenta uma casa com
+          intencionalidade.
+        </p>
+        <p>
+          A Arca é a família Ollivieri abrindo a porta da
+          própria casa. O que ensinamos é o que vivemos.
+          Não mais, não menos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       O QUE NÃO É
+  ══════════════════════════════════════════════════════════ -->
+  <section class="nao-e">
+    <div class="container">
+      <p class="chapter reveal"><span class="roman">V</span>Transparência</p>
+      <h2 class="section-title reveal reveal-d1">O que a Arca <em>não é</em>.</h2>
+
+      <div class="neg-list reveal reveal-d2">
+        <div class="neg-item">
+          <span class="neg-item__numeral">i.</span>
+          <span>Não é comunidade, grupo ou fórum.</span>
+        </div>
+        <div class="neg-item">
+          <span class="neg-item__numeral">ii.</span>
+          <span>Não tem encontros periódicos prometidos.</span>
+        </div>
+        <div class="neg-item">
+          <span class="neg-item__numeral">iii.</span>
+          <span>Não tem cronograma de publicação.</span>
+        </div>
+        <div class="neg-item">
+          <span class="neg-item__numeral">iv.</span>
+          <span>Não substitui terapia, consultoria ou acompanhamento profissional.</span>
+        </div>
+        <div class="neg-item">
+          <span class="neg-item__numeral">v.</span>
+          <span>Não promete resultados específicos na sua vida.</span>
+        </div>
+        <div class="neg-item">
+          <span class="neg-item__numeral">vi.</span>
+          <span>Não é um lançamento digital com contagem regressiva.</span>
+        </div>
+      </div>
+
+      <p class="neg-quote reveal reveal-d3">
+        A Arca é um reduto de sanidade, não a grande
+        evolução do mercado de cursos. É o que a gente
+        vive, ensinado com calma pra quem quiser aprender.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PREÇO
+  ══════════════════════════════════════════════════════════ -->
+  <section class="preco grain" id="preco">
+    <div class="preco__frame">
+      <div class="preco__stamp reveal"></div>
+
+      <p class="chapter chapter--light chapter--center reveal reveal-d1" style="margin-bottom:32px">
+        Pagamento único
+      </p>
+
+      <div class="reveal reveal-d2" style="margin-bottom:12px">
+        <span class="preco__currency">R$</span><span class="preco__value">1.200</span>
+      </div>
+
+      <p class="preco__sub reveal reveal-d3">
+        Uma vez só. Sem mensalidade. Sem renovação.<br />
+        Acesso a todo o acervo atual e a tudo que vier depois.
+      </p>
+
+      <div class="reveal reveal-d4">
+        <a href="#" class="cta-btn">Entrar na Arca</a>
+      </div>
+
+      <p class="preco__guarantee reveal reveal-d5">
+        Sete dias de garantia · Reembolso integral · Sem perguntas
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       CADERNOS vs ARCA
+  ══════════════════════════════════════════════════════════ -->
+  <section class="cadernos">
+    <div class="container--wide">
+      <p class="chapter reveal"><span class="roman">VI</span>Uma dúvida comum</p>
+      <h2 class="section-title reveal reveal-d1">
+        Cadernos <em>ou</em> Arca?
+      </h2>
+
+      <div class="cadernos-split">
+        <div class="cadernos-col reveal reveal-d2">
+          <p class="cadernos-col__label">Gratuito · YouTube</p>
+          <h3 class="cadernos-col__name">Cadernos Ollivieri</h3>
+          <p class="cadernos-col__what">O <em>quê</em> e o <em>porquê</em>.</p>
+          <p class="cadernos-col__desc">
+            As ideias, os princípios, a visão de mundo.
+            Conteúdo público, disponível no YouTube, para quem
+            quiser entender como pensamos.
+          </p>
+        </div>
+        <div class="cadernos-col reveal reveal-d3">
+          <p class="cadernos-col__label">Pagamento único</p>
+          <h3 class="cadernos-col__name">Arca Ollivieri</h3>
+          <p class="cadernos-col__what">O <em>como</em>.</p>
+          <p class="cadernos-col__desc">
+            A implementação prática, o dia a dia, os desafios
+            concretos de viver aquilo. Com aulas exclusivas da
+            Nicole e a franqueza que só um ambiente fechado permite.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════════════════════════ -->
+  <section class="faq">
+    <div class="container">
+      <p class="chapter reveal"><span class="roman">VII</span>Dúvidas</p>
+      <h2 class="section-title reveal reveal-d1">Perguntas frequentes</h2>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>O que exatamente eu recebo ao entrar?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer__text">Acesso imediato a mais de 60 aulas gravadas, organizadas por trilhas temáticas — Matrimônio, Filhos, Vida Espiritual, Trabalho e Dinheiro, Corpo e Saúde, entre outras. Novas aulas são adicionadas periodicamente, sem cronograma fixo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>É pagamento único mesmo?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer__text">Sim. Você paga uma vez só. Sem mensalidade, sem renovação, sem surpresa na fatura. Enquanto a Arca existir, você tem seu lugar nela.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Isso substitui terapia ou consultoria?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer__text">Não. A Arca é formação — ajuda a construir uma base sólida. Se você está passando por uma crise que exige intervenção profissional, procure o acompanhamento adequado.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Tem comunidade, grupo ou encontros?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer__text">Não. A Arca é um acervo de aulas. Se algum dia fizermos algo extra, será como presente, não como obrigação.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>E se a plataforma sair do ar?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer__text">Se a Hotmart for descontinuada em menos de 5 anos da sua compra, disponibilizaremos as aulas principais por meio alternativo. Mantemos backup de tudo.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Posso pedir reembolso?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p class="faq-answer__text">Sim. Você tem 7 dias após a compra para solicitar reembolso integral, sem precisar justificar. É o seu direito por lei.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       CTA FINAL
+  ══════════════════════════════════════════════════════════ -->
+  <section class="cta-final grain">
+    <div class="cta-final__inner">
+      <div class="cta-final__ornament reveal">· ✦ ·</div>
+      <h2 class="cta-final__title reveal reveal-d1">A porta está <em>aberta</em>.</h2>
+      <p class="cta-final__sub reveal reveal-d2">
+        Você paga uma vez, entra, e fica.<br />
+        No seu ritmo. Com calma.
+      </p>
+      <div class="reveal reveal-d3">
+        <a href="#" class="cta-btn">Entrar na Arca · R$ 1.200</a>
+      </div>
+      <p class="cta-final__note reveal reveal-d4">
+        Pagamento único · Sete dias de garantia · Acesso imediato
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__monogram">AO</div>
+    <p class="footer__text">Arca Ollivieri · MMXXVI · Todos os direitos reservados</p>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    // ── Reveal on scroll ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── FAQ toggle ──
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    }
+  </script>
+
+</body>
+</html>
