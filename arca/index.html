@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Arca Ollivieri — Reabertura</title>
+  <meta name="description" content="A Arca reabre em 13 de maio de 2026, às 21h." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;1,8..60,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy-deep:  #0C1F31;
+      --navy:       #112E49;
+      --navy-soft:  #1E3F5F;
+
+      --ocre:       #CC922F;
+      --ocre-soft:  #E1C389;
+      --ocre-muted: #A87922;
+
+      --paper:      #FAF6EC;
+      --cream:      #F7F1E4;
+
+      --font-display: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+      --font-body:    "Source Serif 4", "Source Serif Pro", Georgia, serif;
+      --font-ui:      "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body {
+      background: var(--navy-deep);
+      color: var(--paper);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* ─── Vinheta sutil ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 35%, rgba(0,0,0,0.55) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* ─── Grain overlay ─── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 0.8 0 0 0 0 0.57 0 0 0 0 0.18 0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 2;
+      mix-blend-mode: overlay;
+    }
+
+    main {
+      position: relative;
+      z-index: 3;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 28px 60px;
+    }
+
+    .stage {
+      max-width: 620px;
+      width: 100%;
+      text-align: center;
+      animation: fade-in 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Eyebrow ─── */
+    .eyebrow {
+      font-family: var(--font-ui);
+      font-size: 10.5px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--ocre);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-weight: 500;
+    }
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--ocre);
+    }
+
+    /* ─── Brand title ─── */
+    .brand {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(48px, 9vw, 84px);
+      line-height: 1;
+      letter-spacing: -1.5px;
+      color: var(--paper);
+      margin-bottom: 18px;
+    }
+    .brand em {
+      font-style: italic;
+      color: var(--ocre-soft);
+    }
+
+    /* ─── Subtítulo ─── */
+    .tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(18px, 3.6vw, 22px);
+      line-height: 1.5;
+      color: var(--ocre-soft);
+      max-width: 460px;
+      margin: 0 auto 48px;
+    }
+
+    /* ─── Anúncio ─── */
+    .announcement {
+      font-family: var(--font-body);
+      font-size: clamp(16px, 3.4vw, 17.5px);
+      line-height: 1.85;
+      color: rgba(247, 241, 228, 0.85);
+      max-width: 480px;
+      margin: 0 auto 52px;
+    }
+    .announcement p + p {
+      margin-top: 18px;
+    }
+    .announcement em {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.12em;
+      font-weight: 500;
+      color: var(--ocre-soft);
+    }
+
+    /* ─── Data em destaque ─── */
+    .date-block {
+      display: inline-block;
+      padding: 36px 52px;
+      border: 1px solid rgba(204, 146, 47, 0.3);
+      margin-bottom: 52px;
+      position: relative;
+      background: rgba(204, 146, 47, 0.04);
+    }
+
+    /* Cantos ornamentais */
+    .date-block::before,
+    .date-block::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-color: var(--ocre);
+      border-style: solid;
+    }
+    .date-block::before {
+      top: -1px;
+      left: -1px;
+      border-width: 2px 0 0 2px;
+    }
+    .date-block::after {
+      bottom: -1px;
+      right: -1px;
+      border-width: 0 2px 2px 0;
+    }
+
+    .date-block__label {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--ocre-muted);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .date-block__date {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 8vw, 54px);
+      line-height: 1.05;
+      color: var(--paper);
+      letter-spacing: -1px;
+    }
+    .date-block__date em {
+      font-style: italic;
+      color: var(--ocre-soft);
+    }
+
+    .date-block__divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(204, 146, 47, 0.4);
+      margin: 20px auto;
+    }
+
+    .date-block__time {
+      font-family: var(--font-ui);
+      font-size: 11.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(225, 195, 137, 0.7);
+      font-weight: 500;
+    }
+
+    /* ─── Assinatura ─── */
+    .signature {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 17px;
+      color: var(--ocre-soft);
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      padding: 24px 28px 36px;
+    }
+    .footer-text {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(225, 195, 137, 0.3);
+    }
+
+    /* ─── Mobile ajustes ─── */
+    @media (max-width: 480px) {
+      main { padding: 60px 22px 40px; }
+      .eyebrow { margin-bottom: 26px; font-size: 10px; letter-spacing: 3.5px; }
+      .eyebrow::before, .eyebrow::after { width: 22px; }
+      .tagline { margin-bottom: 36px; }
+      .announcement { margin-bottom: 40px; }
+      .date-block { padding: 28px 32px; margin-bottom: 44px; }
+      .date-block__date { letter-spacing: -0.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="stage">
+
+      <p class="eyebrow">Reabertura</p>
+
+      <h1 class="brand">Arca <em>Ollivieri</em></h1>
+
+      <p class="tagline">Formação para a vida que se constrói em família.</p>
+
+      <div class="announcement">
+        <p>Depois de um período fechada, a Arca abre uma <em>nova fase</em> — mais madura, com novas aulas e um acervo que cresceu junto com a família que o sustenta.</p>
+      </div>
+
+      <div class="date-block">
+        <div class="date-block__label">A porta se abre em</div>
+        <div class="date-block__date">13 de <em>maio</em> de 2026</div>
+        <div class="date-block__divider"></div>
+        <div class="date-block__time">Vinte e uma horas</div>
+      </div>
+
+      <p class="signature">Augusto &amp; Nicole Ollivieri</p>
+
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer-text">Arca Ollivieri · MMXXVI</p>
+  </footer>
+
+</body>
+</html>
