@@ -777,15 +777,36 @@
       .nav__links { display: none; }
       .nav__contato { font-size: 10px; padding: 8px 16px; }
 
-      .hero { padding: 150px 24px 110px; min-height: 90vh; }
-      .hero__byline { font-size: 10px; gap: 12px; margin-bottom: 32px; }
-      .hero__byline::before, .hero__byline::after { width: 20px; }
+      .hero { padding: 110px 24px 90px; min-height: auto; }
+      .hero__byline {
+        font-size: 9.5px;
+        letter-spacing: 2.8px;
+        gap: 10px;
+        margin-bottom: 30px;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+      }
+      .hero__byline::before, .hero__byline::after { width: 18px; }
+      .hero__title {
+        font-size: 56px;
+        letter-spacing: -1.5px;
+        margin-bottom: 22px;
+      }
+      .hero__rule { margin-bottom: 28px; }
+      .hero__services {
+        font-size: 13px;
+        letter-spacing: 1.2px;
+        line-height: 1.7;
+      }
 
       .sobre { padding: 90px 0; }
       .container { padding: 0 24px; }
 
       .frentes { padding: 90px 0; }
-      .frentes__header, .frentes-grid { padding: 0 24px; }
+      .frentes__header { padding: 0 24px; }
+      .frentes-grid { padding: 0; background: transparent; gap: 0; }
+      .frente { border-bottom: 1px solid rgba(225,195,137,0.18); }
+      .frente:last-child { border-bottom: none; }
 
       .psico { padding: 90px 0; }
       .container--wide { padding: 0 24px; }
@@ -793,6 +814,7 @@
       .palestras { padding: 90px 0; }
       .palestras__header, .palestras-grid { padding: 0 24px; }
       .palestras-grid { grid-template-columns: 1fr; }
+      .palestras__cta-wrap { padding: 0 24px; }
 
       .arca-section { padding: 90px 0; }
       .arca-card { padding: 44px 28px; }
